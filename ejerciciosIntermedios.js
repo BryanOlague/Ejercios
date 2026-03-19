@@ -114,11 +114,48 @@ carrito.agregarProducto("Mouse",200);                       // Agregando un nuev
 console.log(`Lista de carrito: `, carrito.verCarrito());  
 
 carrito.eliminarProducto("Mouse");
-console.log(`Lista de carrito: `, carrito.verCarrito()); 
+console.log(`Lista de carrito: `, carrito.verCarrito()); // Elimando un producto del carrito
 
 carrito.agregarProducto("Teclado", 500);
 console.log(`Lista de carrito: `, carrito.verCarrito()); 
 
-console.log(`El precio total es de: `,carrito.total());
+console.log(`El precio total es de: `,carrito.total());     // mostrar el total 
+
+/*
+Dado un array de la siguiente forma 
+const productos = [
+  { nombre: "Manzana", categoria: "fruta" },
+  { nombre: "Zanahoria", categoria: "verdura" },
+  { nombre: "Plátano", categoria: "fruta" },
+  { nombre: "Lechuga", categoria: "verdura" }
+];
+
+crea una funcion que los agrupe asi:
+{
+  fruta: ["Manzana", "Plátano"],
+  verdura: ["Zanahoria", "Lechuga"]
+}
+*/
+
+let comida = [
+    {nombre: "Manzana", categoria: "fruta"},
+    {nombre: "Zanahoria", categoria: "verdura"},
+    {nombre: "Platano", categoria: "fruta"},
+    {nombre: "Lechuga", categoria: "verdura"},
+]
+
+function agruparPorCategoria(array){
+    return array.reduce((acc, producto) => {        // primero separamos por categoria 
+        if (!acc[producto.categoria]){              // si la categoria es diferente a la anterior
+            acc[producto.categoria] = [];              // crea un nuevo array
+        }
+
+        acc[producto.categoria].push(producto.nombre);  // al fnal solo agreganmos el nombre del producto
+        return acc;
+    },{});
+}
+
+const result = agruparPorCategoria(comida);
+console.log(result);
 
 
