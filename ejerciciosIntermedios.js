@@ -64,8 +64,8 @@ function crearGestorTareas (){
         agregarTarea: (tarea) => {
             tareas.push(tarea);
         },
-        eliminarTarea: (index) =>{
-            tareas.splice(index,1);
+        eliminarTarea: (index) =>{          // splice sirve para eliminar un dato del array por su index
+            tareas.splice(index,1);         // el numero 1 significa eliminar solamente 1
         },
         listarTareas: () => {
             return tareas;
@@ -84,5 +84,41 @@ console.log(`Tareas pendientes:`,gestor.listarTareas());
 gestor.eliminarTarea(1);
 console.log(`Tareas pendientes:`,gestor.listarTareas());
 
+// crear una funcion que permita 
+// agregar un producto, eliminar un producto, ver carrito, total 
+
+let productos = [
+    {nombre: "Laptop", precio: 1000}
+];
+function crearCarrito (){
+    return{
+        agregarProducto: (nombreProducto,precioProducto) => {
+            productos.push({nombre: nombreProducto, precio: precioProducto});
+        },
+        eliminarProducto: (nombreProducto) => {
+            productos = productos.filter(producto => producto.nombre !== nombreProducto);
+        },
+        verCarrito: () => {
+            return productos;
+        },
+        total: () => productos.reduce((a,p) => a + p.precio, 0)
+            
+        
+    }
+}
+
+const carrito = crearCarrito ();
+console.log(`Lista de carrito: `, carrito.verCarrito());   // ver listado del carrito
+
+carrito.agregarProducto("Mouse",200);                       // Agregando un nuevo producto
+console.log(`Lista de carrito: `, carrito.verCarrito());  
+
+carrito.eliminarProducto("Mouse");
+console.log(`Lista de carrito: `, carrito.verCarrito()); 
+
+carrito.agregarProducto("Teclado", 500);
+console.log(`Lista de carrito: `, carrito.verCarrito()); 
+
+console.log(`El precio total es de: `,carrito.total());
 
 
