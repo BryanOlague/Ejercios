@@ -159,3 +159,19 @@ const result = agruparPorCategoria(comida);
 console.log(result);
 
 
+// dado dos sets, encuentra la union, interseccion y diferencia entre ellos 
+
+const setA = new Set ([1,2,3,4,5,6,6]);
+const setB = new Set ([5,6,7,8,9,9]);
+
+const unionSets = new Set ([...setA,...setB]);
+
+const interseccion = new Set ([...setA].filter(element => setB.has(element)));
+
+const diferencia = new Set ([...setA].filter(element => !setB.has(element)));
+
+console.log("La union entre ellos: ",unionSets);
+console.log("La interseccion entre ellos: ",interseccion);
+console.log("La diferencia entre ellos: ",diferencia);
+
+
