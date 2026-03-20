@@ -174,4 +174,18 @@ console.log("La union entre ellos: ",unionSets);
 console.log("La interseccion entre ellos: ",interseccion);
 console.log("La diferencia entre ellos: ",diferencia);
 
+// 7- ordena un array de numeros de mayor a menor 
+
+let numeros = [3,1,4,6,23,4,1,8];
+
+let mayorMenor = numeros.sort((a,b) => b-a);    // acomodar los numeros de mayor a menor 
+
+console.log(`array ordenado de mayor a menor: `,mayorMenor);
+
+// 8- dado un array de numeros, crea uno nuevo con dichos numeros elevados al cubo 
+
+let numerosAlCubo = mayorMenor.map(numero => numero ** 3);
+
+console.log(`El array elevado al cubo: `,numerosAlCubo);
+
 
