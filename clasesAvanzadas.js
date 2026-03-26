@@ -80,4 +80,30 @@ const dragon = new Dragon("NuevoDragon")
 console.log(dragon.name)
 dragon.fly();
 
+// patrones de diseño
+// patron singleton     
+// Solo se puede instancia una sola vez en todo el codigo
+
+class Session {
+    constructor(name){
+    if (Session.instance){                      //Hacemos que solo se pueda instancia una vez 
+        return Session.instance
+    }
+    this.name = name
+    Session.instance = this                     
+    }
+}
+
+const session1 = new Session("Bryan Olague")
+const session2 =  new Session()                     // ppor mas que creemos otra session siempre tendra el valor de la primera session 
+console.log(session1.name)
+console.log(session2.name)
+
+console.log(session1 === session2)
+
+const session3 = new Session ("Alejandro")
+console.log(session3.name);
+
+
+
 
